@@ -1,4 +1,4 @@
-module github.com/touchtechnologies-product/message-broker
+module github.com/huakwan/message-broker
 
 go 1.15
 

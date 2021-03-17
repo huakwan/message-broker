@@ -10,7 +10,7 @@ import (
 
 	"github.com/Shopify/sarama"
 	"github.com/bwmarrin/snowflake"
-	"github.com/touchtechnologies-product/message-broker/common"
+	"github.com/huakwan/message-broker/common"
 )
 
 type broker struct {

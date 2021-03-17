@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/Shopify/sarama"
-	"github.com/touchtechnologies-product/message-broker/common"
+	"github.com/huakwan/message-broker/common"
 )
 
 type contextKey string

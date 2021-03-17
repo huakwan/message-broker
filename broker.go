@@ -2,8 +2,8 @@ package message
 
 import (
 	"errors"
-	"github.com/touchtechnologies-product/message-broker/common"
-	"github.com/touchtechnologies-product/message-broker/kafka"
+	"github.com/huakwan/message-broker/common"
+	"github.com/huakwan/message-broker/kafka"
 )
 
 type Broker interface {

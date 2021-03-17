@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/suite"
-	"github.com/touchtechnologies-product/message-broker/common"
+	"github.com/huakwan/message-broker/common"
 )
 
 type TestSuite struct {
