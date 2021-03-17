@@ -7,6 +7,7 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
+	"time"
 
 	"github.com/Shopify/sarama"
 	"github.com/bwmarrin/snowflake"
@@ -91,8 +92,10 @@ func (kafka *broker) contextIsCancelled() (is bool) {
 
 func (kafka *broker) waitUntilConsumerIsReady(ch chan bool) {
 	<-kafka.consumer.ready
+	time.Sleep(1 * time.Second)
 	ch <- true
 }
+
 func (kafka *broker) waitUntilCleanupIsReady() (err error) {
 	err = <-kafka.cleanupReady
 	close(kafka.cleanupReady)
