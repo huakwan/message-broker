@@ -58,9 +58,9 @@ func (kafka *broker) SendTopicMessage(topic string, msg []byte) (err error) {
 	return err
 }
 
-func (kafka *broker) Start(closeCallback common.CloseCallback) {
+func (kafka *broker) Start(closeCallback common.CloseCallback, ch chan bool) {
 	go kafka.startConsumingLoop()
-	kafka.waitUntilConsumerIsReady()
+	kafka.waitUntilConsumerIsReady(ch)
 	kafka.waitForCloseSignal(closeCallback)
 }
 
@@ -89,8 +89,9 @@ func (kafka *broker) contextIsCancelled() (is bool) {
 	return kafka.ctx.Err() != nil
 }
 
-func (kafka *broker) waitUntilConsumerIsReady() {
+func (kafka *broker) waitUntilConsumerIsReady(ch chan bool) {
 	<-kafka.consumer.ready
+	ch <- <-kafka.consumer.ready
 }
 func (kafka *broker) waitUntilCleanupIsReady() (err error) {
 	err = <-kafka.cleanupReady
